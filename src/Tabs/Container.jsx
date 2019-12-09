@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Tabs from './Tabs';
 
 const listLetters = [
@@ -31,7 +32,13 @@ const listLetters = [
 
 const Container = () => {
       const  [state, setState] = useState(0);
-      const onSelectTab = (event) => setState(event.detail.index);
+
+      const history = useHistory();
+
+      const onSelectTab = (event) => {
+            setState(event.detail.index);
+            history.push(`/${listLetters[event.detail.index]}`);
+          }
 
       return (
             <div>
