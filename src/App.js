@@ -6,6 +6,7 @@ import {
   BrowserRouter as Router,
   Route,
 } from "react-router-dom";
+import Contacts from './Contacts/Contacts';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
       <div className="App">
         <Container />
         <Route path="/:letter">
-          <div>high</div>
+          <Contacts />
         </Route>
       </div>
     </Router>
