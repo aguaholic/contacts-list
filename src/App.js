@@ -1,12 +1,19 @@
 import React from 'react';
 import './App.css';
-import ContactsList from './Containers/ContactsList';
+import Container from './Tabs/Container';
+
+import {
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <ContactsList />
-    </div>
+    <Router>
+      <div className="App">
+        <Container />
+      </div>
+    </Router>
+
   );
 }
 
