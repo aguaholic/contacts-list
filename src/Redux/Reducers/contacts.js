@@ -1,4 +1,4 @@
-export function contacts (state, action) {
+export function contacts (state = [], action) {
   switch (action.type) {
     case 'FETCHED_CONTACTS':
       return action.contacts

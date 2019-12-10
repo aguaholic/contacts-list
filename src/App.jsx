@@ -8,10 +8,12 @@ import {
 import Contacts from './Contacts/Contacts'
 import Container from './Tabs/Container'
 import store from './Redux/Store'
+import { fetchContacts } from './Redux/Actions/contacts'
 
 import './App.css'
 
 function App () {
+  store.dispatch(fetchContacts())
   return (
     <Provider store={store}>
       <Router>

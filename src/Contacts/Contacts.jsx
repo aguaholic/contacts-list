@@ -1,33 +1,24 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-
-const contacts = [
-  { name: 'Stefan', email: 'osihsohi@oshis.com', id: 0 },
-  { name: 'Joyce', email: 'osihsohi@oshis.com', id: 1 },
-  { name: 'SexyTete', email: 'osihsohi@oshis.com', id: 2 },
-  { name: 'Jackie', email: 'osihsohi@oshis.com', id: 3 },
-  { name: 'Jamie', email: 'osihsohi@oshis.com', id: 4 },
-  { name: 'Stefanus', email: 'osihsohi@oshis.com', id: 5 }
-]
 
 const Contacts = () => {
   const params = useParams()
 
-  const filteredContacts = contacts.filter(item => {
-    return (
-      item.name[0] === params.letter
-    )
-  })
-    .map((item, i) => {
-      return (
-        <li key={i}>{item.name} {item.email}</li>
-      )
+  const contacts = useSelector((contacts) => {
+    return contacts.filter((contact) => {
+      return contact.name.last[0] === params.letter
     })
+  }).map((contact, i) => (
+    <li key={i}>
+      {contact.name.first} {contact.name.last}
+    </li>
+  ))
 
   return (
     <div>
       <ul>
-        {filteredContacts}
+        {contacts}
       </ul>
     </div>
   )
