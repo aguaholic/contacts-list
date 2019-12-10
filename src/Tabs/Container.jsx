@@ -26,6 +26,7 @@ const listLetters = [
   'T',
   'U',
   'V',
+  'W',
   'X',
   'Y',
   'Z'
