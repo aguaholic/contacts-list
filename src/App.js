@@ -1,23 +1,28 @@
 import React from 'react';
-import './App.css';
-import Container from './Tabs/Container';
-
+import { Provider } from 'react-redux'
 import {
   BrowserRouter as Router,
   Route,
 } from "react-router-dom";
+
 import Contacts from './Contacts/Contacts';
+import Container from './Tabs/Container';
+import store from './Redux/Store';
+
+import './App.css';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Container />
-        <Route path="/:letter">
-          <Contacts />
-        </Route>
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+          <div className="App">
+            <Container />
+            <Route path="/:letter">
+              <Contacts />
+            </Route>
+          </div>
+        </Router>
+    </Provider>
   );
 }
 
