@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import Tabs from './Tabs'
 
-const listLetters = [
+const alphabet = [
   'A',
   'B',
   'C',
@@ -39,12 +39,12 @@ const Container = () => {
 
   const onSelectTab = (event) => {
     setState(event.detail.index)
-    history.push(`/${listLetters[event.detail.index]}`)
+    history.push(`/${alphabet[event.detail.index]}`)
   }
 
   return (
     <div>
-      <Tabs selectedTab={state} tabHeaders={listLetters} onSelectTab={onSelectTab} />
+      <Tabs selectedTab={state} tabHeaders={alphabet} onSelectTab={onSelectTab} />
     </div>
   )
 }
