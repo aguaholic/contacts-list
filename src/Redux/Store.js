@@ -1,9 +1,9 @@
 import { createStore } from 'redux'
 
-const placeholder = (state) => state
+import { contacts } from './Reducers/contacts'
 
 const store = createStore(
-  placeholder,
+  contacts,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
