@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import Modal from '../Modal/Modal'
 import Card from '../Contacts/Card/Card'
+import Backdrop from '../Backdrop/Backdrop'
 
 import classes from './Contacts.module.css'
 
@@ -41,9 +42,12 @@ const Contacts = () => {
     <div className={classes.Column}>
       {selectedContact
         ? (
-          <Modal>
-            <Card contact={selectedContact} onClose={handleClose} />
-          </Modal>
+          <div>
+            <Backdrop />
+            <Modal>
+              <Card contact={selectedContact} onClose={handleClose} />
+            </Modal>
+          </div>
         )
         : null}
       <ul>
