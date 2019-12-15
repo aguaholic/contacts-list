@@ -32,7 +32,6 @@ const Contacts = () => {
       return contact.name.last[0] === params.letter
     })
   }).map((contact, i) => {
-    // console.log(contact.login.sha1)
     return (
       <li
         key={i}
@@ -42,9 +41,7 @@ const Contacts = () => {
       </li>
     )
   })
-
-  // console.log(show, selectContact)
-  // console.log(selectedPerson, 'contacts')
+  const count = contacts.length
 
   return (
     <div className={classes.Column}>
@@ -55,7 +52,7 @@ const Contacts = () => {
           </Modal>
         )
         : null}
-      <p className={classes.Amount}>Amount</p>
+      <p className={classes.Amount}>Total contacts: {count}</p>
       <ul>
         {contacts}
       </ul>
