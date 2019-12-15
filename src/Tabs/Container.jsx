@@ -46,21 +46,24 @@ const Container = () => {
     }
   }, [params])
 
-  const onSelectTab = (event) => {
-    setSelectedTabIndex(event.detail.index)
-    history.push(`/${alphabet[event.detail.index]}`)
-  }
-
   const contacts = useSelector((contacts) => contacts)
 
   const headers = alphabet.map((letter) => {
-    const count = contacts.filter((contact) => contact.name.last[0] === letter).length
+    const count = contacts.filter((contact) => contact.name.last[0] === letter).length.toString()
 
     return {
       label: letter,
       icon: count
     }
   })
+
+  const onSelectTab = (event) => {
+    const header = headers[event.detail.index]
+    if (Number(header.icon) > 0) {
+      setSelectedTabIndex(event.detail.index)
+      history.push(`/${alphabet[event.detail.index]}`)
+    }
+  }
 
   return (
     <div>
