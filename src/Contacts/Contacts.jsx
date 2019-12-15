@@ -32,7 +32,7 @@ const Contacts = () => {
         key={i}
         className={classes.List}
         onClick={() => handleSelectContact(contact)}>
-        {contact.name.first}, {contact.name.last}
+        {contact.name.first} {contact.name.last.toUpperCase()}
       </li>
     )
   })

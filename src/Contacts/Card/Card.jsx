@@ -11,7 +11,7 @@ const Card = ({ contact, onClose }) => {
         onClick={onClose}>
           X
       </div>
-      <h2>{contact.name.first}, {contact.name.last}</h2>
+      <h2>{contact.name.last.toUpperCase()}, {contact.name.first}</h2>
       <div>
         <strong>email:</strong> {contact.email}
       </div>

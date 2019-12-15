@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 
 import Contacts from './Contacts/Contacts'
-import Container from './Tabs/Container'
+import { Tabs } from './Tabs'
 import store from './Redux/Store'
 import { fetchContacts } from './Redux/Actions/contacts'
 
@@ -19,7 +19,7 @@ function App () {
       <Router>
         <div className='App'>
           <Route path='/:letter?'>
-            <Container />
+            <Tabs />
             <Contacts />
           </Route>
         </div>
