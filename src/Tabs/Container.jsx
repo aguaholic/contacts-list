@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
@@ -48,14 +48,16 @@ const Container = () => {
 
   const contacts = useSelector((contacts) => contacts)
 
-  const headers = alphabet.map((letter) => {
-    const count = contacts.filter((contact) => contact.name.last[0] === letter).length.toString()
+  const headers = useMemo(() => {
+    return alphabet.map((letter) => {
+      const count = contacts.filter((contact) => contact.name.last[0] === letter).length.toString()
 
-    return {
-      label: letter,
-      icon: count
-    }
-  })
+      return {
+        label: letter,
+        icon: count
+      }
+    })
+  }, [contacts])
 
   const onSelectTab = (event) => {
     const header = headers[event.detail.index]
