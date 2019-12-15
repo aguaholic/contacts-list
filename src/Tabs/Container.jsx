@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { useHistory, useParams } from 'react-router-dom'
 
 import Tabs from './Tabs'
 
@@ -33,18 +33,26 @@ const alphabet = [
 ]
 
 const Container = () => {
-  const [state, setState] = useState(0)
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0)
 
   const history = useHistory()
+  const params = useParams()
+
+  useEffect(() => {
+    const indexOfSelectedLetter = alphabet.findIndex((letter) => letter === params.letter)
+    if (indexOfSelectedLetter !== selectedTabIndex) {
+      setSelectedTabIndex(indexOfSelectedLetter)
+    }
+  }, [params])
 
   const onSelectTab = (event) => {
-    setState(event.detail.index)
+    setSelectedTabIndex(event.detail.index)
     history.push(`/${alphabet[event.detail.index]}`)
   }
 
   return (
     <div>
-      <Tabs selectedTab={state} tabHeaders={alphabet} onSelectTab={onSelectTab} />
+      <Tabs selectedTab={selectedTabIndex} tabHeaders={alphabet} onSelectTab={onSelectTab} />
     </div>
   )
 }

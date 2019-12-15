@@ -9,7 +9,9 @@ import '@material/tab-indicator/dist/mdc.tab-indicator.css'
 const Tabs = (props) => {
   return (
     <div>
-      <TabBar onActivate={props.onSelectTab}>
+      <TabBar
+        activeTabIndex={props.selectedTab}
+        onActivate={props.onSelectTab}>
         {props.tabHeaders.map(letter => (
           <Tab key={letter}>
             {letter}

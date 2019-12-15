@@ -1,0 +1,16 @@
+.List {
+      list-style-type: none;
+      margin-bottom: 10px;
+}
+
+.Column ul {
+      column-count: 2;
+      text-align: left;
+      padding: 10px;
+      margin-left: 10px;
+}
+
+.Amount {
+      text-align: right;
+      margin-right: 20px;
+}

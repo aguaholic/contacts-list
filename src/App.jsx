@@ -18,8 +18,8 @@ function App () {
     <Provider store={store}>
       <Router>
         <div className='App'>
-          <Container />
-          <Route path='/:letter'>
+          <Route path='/:letter?'>
+            <Container />
             <Contacts />
           </Route>
         </div>
