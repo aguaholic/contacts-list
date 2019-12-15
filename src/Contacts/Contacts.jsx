@@ -10,22 +10,17 @@ import classes from './Contacts.module.css'
 const Contacts = () => {
   const params = useParams()
 
-  const [show, showDetail] = useState(false)
-  const [selectedPerson, selectContact] = useState(null)
+  const [selectedContact, setSelectedContact] = useState(null)
 
-  const showDetailHandler = (id) => {
-    showDetail(true)
+  const handleSelectContact = (contact) => {
+    if (!selectedContact) {
+      setSelectedContact(contact)
+    }
   }
 
-  const selectContactHandler = (id) => {
-    selectContact(id)
+  const handleClose = () => {
+    setSelectedContact(null)
   }
-
-  // const hideDetailHandler = () => {
-  //   showDetail({
-  //     show: false
-  //   })
-  // }
 
   const contacts = useSelector((contacts) => {
     return contacts.filter((contact) => {
@@ -36,7 +31,7 @@ const Contacts = () => {
       <li
         key={i}
         className={classes.List}
-        onClick={() => showDetailHandler(contact.login.sha1)}>
+        onClick={() => handleSelectContact(contact)}>
         {contact.name.first}, {contact.name.last}
       </li>
     )
@@ -45,10 +40,10 @@ const Contacts = () => {
 
   return (
     <div className={classes.Column}>
-      {show
+      {selectedContact
         ? (
-          <Modal show={show}>
-            <Card selectedPerson={selectedPerson} />
+          <Modal>
+            <Card contact={selectedContact} onClose={handleClose} />
           </Modal>
         )
         : null}
