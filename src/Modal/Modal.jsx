@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import classes from './Modal.module.css'
 
@@ -7,5 +8,9 @@ const Modal = (props) => (
     {props.children}
   </div>
 )
+
+Modal.propTypes = {
+  children: PropTypes.any
+}
 
 export default Modal
