@@ -36,7 +36,8 @@ const Card = ({ contact, onClose }) => {
 }
 
 Card.propTypes = {
-  contact: PropTypes.object
+  contact: PropTypes.object,
+  onClose: PropTypes.func
 }
 
 export default Card

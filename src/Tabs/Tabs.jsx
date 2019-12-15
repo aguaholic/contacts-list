@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { TabBar, Tab } from '@rmwc/tabs'
 
 import '@material/tab-bar/dist/mdc.tab-bar.css'
@@ -18,6 +19,12 @@ const Tabs = (props) => {
       </TabBar>
     </div>
   )
+}
+
+Tabs.propTypes = {
+  onSelectTab: PropTypes.func,
+  selectedTab: PropTypes.number,
+  tabHeaders: PropTypes.array
 }
 
 export default Tabs
