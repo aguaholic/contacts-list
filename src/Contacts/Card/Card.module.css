@@ -1,3 +1,30 @@
+.Card {
+      padding: 5px;
+}
+
+@media (min-width: 600px) {
+      .Card {
+            margin: 5px;
+            padding: 20px;
+      }
+}
+
+.Card h2{
+      margin-top: 0;
+}
+
+.Card img {
+      float: none;
+      border-radius: 50%;
+}
+
+@media (min-width: 600px) {
+      .Card img{
+            float: left;
+      }
+}
+
 .Close {
       float: right;
+      height: 10px;
 }
