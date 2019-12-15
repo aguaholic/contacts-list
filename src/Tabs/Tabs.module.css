@@ -1,0 +1,7 @@
+.Disabled {
+      cursor: not-allowed !important;
+}
+
+.Disabled :hover {
+      background-color: lightgrey;
+}

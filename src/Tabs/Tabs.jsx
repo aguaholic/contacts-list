@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { TabBar, Tab } from '@rmwc/tabs'
 
+import classes from './Tabs.module.css'
+
 import '@material/tab-bar/dist/mdc.tab-bar.css'
 import '@material/tab/dist/mdc.tab.css'
 import '@material/tab-scroller/dist/mdc.tab-scroller.css'
@@ -14,7 +16,7 @@ const Tabs = (props) => {
         activeTabIndex={props.selectedTab}
         onActivate={props.onSelectTab}>
         {props.tabHeaders.map((header) => (
-          <Tab key={header.label} label={header.label} icon={header.icon} />
+          <Tab key={header.label} className={header.disabled ? classes.Disabled : undefined} label={header.label} icon={header.icon} />
         ))}
       </TabBar>
     </div>

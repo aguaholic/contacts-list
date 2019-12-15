@@ -54,7 +54,8 @@ const Container = () => {
 
       return {
         label: letter,
-        icon: count
+        icon: count,
+        disabled: count === '0'
       }
     })
   }, [contacts])
