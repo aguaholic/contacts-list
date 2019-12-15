@@ -12,13 +12,10 @@ const Tabs = (props) => {
       <TabBar
         activeTabIndex={props.selectedTab}
         onActivate={props.onSelectTab}>
-        {props.tabHeaders.map(letter => (
-          <Tab key={letter}>
-            {letter}
-          </Tab>
+        {props.tabHeaders.map((header) => (
+          <Tab key={header.label} label={header.label} icon={header.icon} />
         ))}
       </TabBar>
-      {/* {props.tabHeaders[props.selectedTab]} */}
     </div>
   )
 }

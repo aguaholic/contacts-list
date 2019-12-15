@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 import Tabs from './Tabs'
 
@@ -50,9 +51,20 @@ const Container = () => {
     history.push(`/${alphabet[event.detail.index]}`)
   }
 
+  const contacts = useSelector((contacts) => contacts)
+
+  const headers = alphabet.map((letter) => {
+    const count = contacts.filter((contact) => contact.name.last[0] === letter).length
+
+    return {
+      label: letter,
+      icon: count
+    }
+  })
+
   return (
     <div>
-      <Tabs selectedTab={selectedTabIndex} tabHeaders={alphabet} onSelectTab={onSelectTab} />
+      <Tabs selectedTab={selectedTabIndex} tabHeaders={headers} onSelectTab={onSelectTab} />
     </div>
   )
 }

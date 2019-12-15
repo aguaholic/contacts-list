@@ -36,7 +36,6 @@ const Contacts = () => {
       </li>
     )
   })
-  const count = contacts.length
 
   return (
     <div className={classes.Column}>
@@ -47,7 +46,6 @@ const Contacts = () => {
           </Modal>
         )
         : null}
-      <p className={classes.Amount}>Total contacts: {count}</p>
       <ul>
         {contacts}
       </ul>
